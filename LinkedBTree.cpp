@@ -34,10 +34,12 @@ bool LinkedBTree<ItemType>::add(const ItemType& newData) {
 
 template<class ItemType>
 bool LinkedBTree<ItemType>::remove(const ItemType& data) {
-    // iterate through tree until data value
-    // remove node
-    // shuffle remaining nodes
-    return true;
+    LinkedBTreeNode<ItemType>* newNodePtr(newData);
+    bool success = false;
+
+    rootPtr = removeValue(rootPtr, data, success);
+
+    return success;
 }
 
 template<class ItemType>
@@ -45,11 +47,11 @@ void LinkedBTree<ItemType>::clear() {
 
 }
 
-template <class ItemType>
-ItemType LinkedBTree<ItemType>::getEntry(const ItemType& anEntry) const {
-    bool isValue = contains(anEntry);
-    return findNode(rootPtr, anEntry, isValue)->getItem();
-}
+// template <class ItemType>
+// ItemType LinkedBTree<ItemType>::getEntry(const ItemType& anEntry) const {
+//     bool isValue = contains(anEntry);
+//     return findNode(rootPtr, anEntry, isValue)->getItem();
+// }
 
 template <class ItemType>
 bool LinkedBTree<ItemType>::contains(const ItemType& anEntry) const {

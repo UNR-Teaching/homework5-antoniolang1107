@@ -8,7 +8,7 @@ private:
     LinkedBTreeNode<ItemType>* = rootPtr;
 
 public:
-    LinkedBTreeNode<ItemType>* add(const ItemType& newData);
+    bool add(const ItemType& newData);
     ~LinkedBSearchTree() { }
 
 protected:

@@ -15,8 +15,9 @@ int main() {
     }
 
     LinkedBTree<int> testBTree;
+    std::cout << testBTree.isEmpty() << std::endl;
     int x = 5;
-    testBTree.add(x);
+    //testBTree.add(x);
 
     // std::cout << "Height of the tree: " << BSTree.getHeight() << std::endl;
     // std::cout << "Preorder output: " << std::endl << std::endl;
