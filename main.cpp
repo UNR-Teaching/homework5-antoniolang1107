@@ -20,13 +20,13 @@ int main() {
 
     
 
-    // std::cout << "Height of the tree: " << BSTree.getHeight() << std::endl;
-    // std::cout << "Preorder output: " << std::endl << std::endl;
-    // BSTree.preorderTraverse(display());
-    // std::cout << "Inorder output: " << std::endl << std::endl;;
-    // BSTree.inorderTraverse(display());
-    // std::cout << "Postorder output: " << std::endl;
-    // BSTree.postorderTraverse(display());
+    std::cout << "Height of the tree: " << BSTree.getHeight() << std::endl;
+    std::cout << "Preorder output: " << std::endl << std::endl;
+    BSTree.preorderTraverse(display());
+    std::cout << "Inorder output: " << std::endl << std::endl;;
+    BSTree.inorderTraverse(display());
+    std::cout << "Postorder output: " << std::endl;
+    BSTree.postorderTraverse(display());
 
     return 0;
 }
