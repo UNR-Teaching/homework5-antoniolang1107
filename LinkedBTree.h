@@ -1,6 +1,8 @@
 #ifndef LINKED_BTREE
 #define LINKED_BTREE
 
+#include <algorithm>
+#include <iostream>
 #include "TreeInterface.h"
 #include "LinkedBTreeNode.h"
 
@@ -12,8 +14,8 @@ public:
     LinkedBTree();
 
     bool isEmpty() const;
-    int getHeigh() const;
-    int getNumberOfNode() const;
+    int getHeight() const;
+    int getNumberOfNodes() const;
     ItemType getRootData() const;
     bool add(const ItemType& newData);
     bool remove(const ItemType& data);
@@ -35,10 +37,11 @@ protected:
     LinkedBTreeNode<ItemType>* moveValuesUpTree(LinkedBTreeNode<ItemType>* subTreePtr);
     LinkedBTreeNode<ItemType>* findNode (LinkedBTreeNode<ItemType>* treePtr, const ItemType& targert, bool& isSuccessful) const;
     LinkedBTreeNode<ItemType>* copyTree (const LinkedBTreeNode<ItemType>* oldTreeRootPtr) const;
-    void destryTree(LinkedBTreeNode<ItemType>* subTreePtr);
+    void destroyTree(LinkedBTreeNode<ItemType>* subTreePtr);
     void preorder(void visit(ItemType&), LinkedBTreeNode<ItemType>* treePtr) const;
     void inorder(void visit(ItemType&), LinkedBTreeNode<ItemType>* treePtr) const;
     void postorder(void visit(ItemType&), LinkedBTreeNode<ItemType>* treePtr) const;
+    void visit(ItemType& value);
 };
 
 #include "LinkedBTree.cpp"
