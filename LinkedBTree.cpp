@@ -17,7 +17,7 @@ int LinkedBTree<ItemType>::getHeight() const {
 
 template <class ItemType>
 int LinkedBTree<ItemType>::getNumberOfNodes() const {
-    // add 1 for every node visited in traversal
+    return getNumberOfNodesHelper(rootPtr);
 }
 
 template <class ItemType>
@@ -47,7 +47,8 @@ void LinkedBTree<ItemType>::clear() {
 
 template <class ItemType>
 ItemType LinkedBTree<ItemType>::getEntry(const ItemType& anEntry) const {
-    
+    bool isValue = contains(anEntry);
+    return findNode(rootPtr, anEntry, isValue)->getItem();
 }
 
 template <class ItemType>
@@ -132,14 +133,20 @@ LinkedBTreeNode<ItemType>* LinkedBTree<ItemType>::balancedAdd(LinkedBTreeNode<It
 }
 
 template <class ItemType>
-void LinkedBTree<ItemType>::visit(ItemType& value) {
-    std::cout << value << std::endl;
+LinkedBTreeNode<ItemType>* LinkedBTree<ItemType>::copyTree (const LinkedBTreeNode<ItemType>* oldTreeRootPtr) const {
+    LinkedBTreeNode<ItemType>* newTreePtr;
+
+    if (oldTreeRootPtr != nullptr) {
+        newTreePtr = LinkedBTreeNode<ItemType>(oldTreeRootPtr->getItem(), nullptr, nullptr);
+        newTreePtr->setLeftChildPtr(copyTree(oldTreeRootPtr->getLeftChildPtr()));
+        newTreePtr->setRightChildPtr(copyTree(oldTreeRootPtr->getRightChildPtr()));
+    }
 }
 
 /*
 LinkedBTreeNode<ItemType>* removeValue(LinkedBTreeNode<ItemType>* subTreePtr, const ItemType target, bool& isSuccessful);
 LinkedBTreeNode<ItemType>* moveValuesUpTree(LinkedBTreeNode<ItemType>* subTreePtr);
-LinkedBTreeNode<ItemType>* findNode (LinkedBTreeNode<ItemType>* treePtr, const ItemType& targert, bool& isSuccessful) const;
-LinkedBTreeNode<ItemType>* copyTree (const LinkedBTreeNode<ItemType>* oldTreeRootPtr) const;
+LinkedBTreeNode<ItemType>* findNode (LinkedBTreeNode<ItemType>* treePtr, const ItemType& target, bool& isSuccessful) const;
+
 void destroyTree(LinkedBTreeNode<ItemType>* subTreePtr);
 */
