@@ -34,7 +34,7 @@ bool LinkedBTree<ItemType>::add(const ItemType& newData) {
 
 template<class ItemType>
 bool LinkedBTree<ItemType>::remove(const ItemType& data) {
-    LinkedBTreeNode<ItemType>* newNodePtr(newData);
+    LinkedBTreeNode<ItemType>* newNodePtr(data);
     bool success = false;
 
     rootPtr = removeValue(rootPtr, data, success);

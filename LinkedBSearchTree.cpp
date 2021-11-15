@@ -29,7 +29,7 @@ LinkedBTreeNode<ItemType>* LinkedBSearchTree<ItemType>::placeNode(LinkedBTreeNod
 }
 
 template <class ItemType>
-LinkedBTreeNode<ItemType>* LinkedBSearchTree<ItemType>::removeValue(LinkedBTreeNode<ItemType>* subTreePtr, const ItemType target, bool& isSuccessful) override {
+LinkedBTreeNode<ItemType>* LinkedBSearchTree<ItemType>::removeValue(LinkedBTreeNode<ItemType>* subTreePtr, const ItemType target, bool& isSuccessful) {
     if (subTreePtr == nullptr) {
         isSuccessful = false;
     }
@@ -50,13 +50,22 @@ LinkedBTreeNode<ItemType>* LinkedBSearchTree<ItemType>::removeValue(LinkedBTreeN
 }
 
 template <class ItemType>
-LinkedBTreeNode<ItemType>* LinkedBSearchTree<ItemType>::removeNode(LinkedBTreeNode<ItemType* nodePtr) {
-
+LinkedBTreeNode<ItemType>* LinkedBSearchTree<ItemType>::removeNode(LinkedBTreeNode<ItemType>* nodePtr) {
+    if (this->isLeaf())
+        rootPtr = nullptr;
 }
 
 template <class ItemType>
 LinkedBTreeNode<ItemType>* LinkedBSearchTree<ItemType>::removeLeftmostNode(LinkedBTreeNode<ItemType>* inorderSuccessor) {
-
+    if (nodePtr->getLeftChildPtr() == nullptr) {
+        inorderSuccessor = nodePtr->getItem();
+        return removeNode(nodePtr);
+    }
+    else {
+        tempPtr = removeLeftmostNode(nodePtr->getLeftChildPtr(), inorderSuccessor);
+        nodePtr->getLeftChildPtr(tempPtr);
+        return nodePtr;
+    }
 }
 
 template <class ItemType>

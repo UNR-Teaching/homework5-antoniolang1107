@@ -5,7 +5,7 @@
 template <class ItemType>
 class LinkedBSearchTree : public LinkedBTree<ItemType> {
 private:
-    LinkedBTreeNode<ItemType>* = rootPtr;
+    LinkedBTreeNode<ItemType>* rootPtr;
 
 public:
     bool add(const ItemType& newData);
@@ -13,8 +13,8 @@ public:
 
 protected:
     LinkedBTreeNode<ItemType>* placeNode(LinkedBTreeNode<ItemType>* subTreePtr, LinkedBTreeNode<ItemType>* newNodePtr);
-    LinkedBTreeNode<ItemType>* removeValue(LinkedBTreeNode<ItemType>* subTreePtr, const ItemType target, bool& isSuccessful) override;
-    LinkedBTreeNode<ItemType>* removeNode(LinkedBTreeNode<ItemType* nodePtr);
+    LinkedBTreeNode<ItemType>* removeValue(LinkedBTreeNode<ItemType>* subTreePtr, const ItemType target, bool& isSuccessful);
+    LinkedBTreeNode<ItemType>* removeNode(LinkedBTreeNode<ItemType>* nodePtr);
     LinkedBTreeNode<ItemType>* removeLeftmostNode(LinkedBTreeNode<ItemType>* inorderSuccessor);
     LinkedBTreeNode<ItemType>* removeRightmostNode(LinkedBTreeNode<ItemType>* postorderSuccessor);
     LinkedBTreeNode<ItemType>* findNode (LinkedBTreeNode<ItemType>* treePtr, const ItemType& targert, bool& isSuccessful) const;
