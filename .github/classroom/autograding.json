@@ -9,6 +9,26 @@
       "comparison": "included",
       "timeout": 2,
       "points": null
+    },
+    {
+      "name": "main",
+      "setup": "",
+      "run": "g++ main.cpp",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    },
+    {
+      "name": "driver",
+      "setup": "",
+      "run": "g++ driver.cpp",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
     }
   ]
 }
